@@ -1,6 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment-test
+  name: deployment-skt-user05
 spec:
   replicas: 3

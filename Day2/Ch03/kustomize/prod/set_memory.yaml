@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment-test
+  name: deployment-skt-user05
 spec:
   template:
     spec:
       containers:
-      - name: app-test
+      - name: app-skt-user05
         resources:
           limits:
             memory: 1Gi
