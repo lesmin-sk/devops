@@ -6,7 +6,7 @@ on:
 
 env:
   ecr-repo: 255380800200.dkr.ecr.ap-southeast-1.amazonaws.com/skt-user05
-  image-tag: orange
+  image-tag: red
 
 jobs:
   build:
