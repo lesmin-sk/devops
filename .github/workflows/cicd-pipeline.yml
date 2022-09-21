@@ -2,10 +2,10 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ main ]
 
 env:
-  ecr-repo: test
+  ecr-repo: 255380800200.dkr.ecr.ap-southeast-1.amazonaws.com/skt-user05
   image-tag: orange
 
 jobs:
