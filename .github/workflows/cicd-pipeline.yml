@@ -6,7 +6,7 @@ on:
 
 env:
   ecr-repo: skt-user05
-  image-tag: orange
+  image-tag: red
 
 jobs:
   build:
