@@ -1,0 +1,5 @@
+time="2022-09-20T07:39:46Z" level=info msg="Argo Rollouts Dashboard is now available at localhost 3100"
+time="2022-09-20T08:31:56Z" level=warning msg="rollout.argoproj.io \"bubble-pool\" not found"
+time="2022-09-20T08:31:56Z" level=warning msg="rollout.argoproj.io \"bubble-pool\" not found"
+time="2022-09-20T08:31:56Z" level=warning msg="rollout.argoproj.io \"bubble-pool\" not found"
+time="2022-09-20T08:31:56Z" level=warning msg="rollout.argoproj.io \"bubble-pool\" not found"
