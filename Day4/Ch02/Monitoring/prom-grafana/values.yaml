@@ -170,7 +170,7 @@ alertmanager:
   ##
   config:
     global:
-      slack_api_url: '<Slack Webhook URL>'
+      slack_api_url: 'https://hooks.slack.com/services/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'
 
     route:
       receiver: 'default-receiver'
@@ -187,7 +187,7 @@ alertmanager:
     receivers:
       - name: 'default-receiver'
         slack_configs:
-          - channel: 'test'
+          - channel: 'devops'
             text: "summary: {{ .CommonAnnotations.summary }}\ndescription: {{ .CommonAnnotations.description }}"
 #    global:
 #      resolve_timeout: 5m
@@ -266,13 +266,16 @@ alertmanager:
   #       {{ end }}
 
   ingress:
-    enabled: false
+    enabled: true
 
     # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
     # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
     ingressClassName: alb
 
-    annotations: {}
+    annotations:
+      alb.ingress.kubernetes.io/scheme: internet-facing
+      alb.ingress.kubernetes.io/target-type: ip
+      alb.ingress.kubernetes.io/subnets: subnet-013b2258323841ba1, subnet-087601562a236eec8
     labels: {}
 
     ## Redirect ingress to an additional defined port on the service
@@ -285,8 +288,9 @@ alertmanager:
 
     ## Paths to use for ingress rules - one path should match the alertmanagerSpec.routePrefix
     ##
-    paths: []
+    #paths: []
     # - /
+    path: /
 
     ## For Kubernetes >= 1.18 you should specify the pathType (determines how Ingress paths should be matched)
     ## See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#better-path-matching-with-path-types
@@ -761,7 +765,7 @@ grafana:
     annotations:
       alb.ingress.kubernetes.io/scheme: internet-facing
       alb.ingress.kubernetes.io/target-type: ip
-      alb.ingress.kubernetes.io/subnets: <Subnet IDs>
+      alb.ingress.kubernetes.io/subnets: subnet-013b2258323841ba1, subnet-087601562a236eec8
       # kubernetes.io/ingress.class: nginx
       # kubernetes.io/tls-acme: "true"
 
@@ -2162,13 +2166,16 @@ prometheus:
   #     someoneelse:$apr1$DMZX2Z4q$6SbQIfyuLQd.xmo/P0m2c.
 
   ingress:
-    enabled: false
+    enabled: true
 
     # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
     # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
     ingressClassName: alb
 
-    annotations: {}
+    annotations:
+      alb.ingress.kubernetes.io/scheme: internet-facing
+      alb.ingress.kubernetes.io/target-type: ip
+      alb.ingress.kubernetes.io/subnets: subnet-013b2258323841ba1, subnet-087601562a236eec8
     labels: {}
 
     ## Redirect ingress to an additional defined port on the service
@@ -2183,8 +2190,9 @@ prometheus:
 
     ## Paths to use for ingress rules - one path should match the prometheusSpec.routePrefix
     ##
-    paths: []
+    #paths: []
     # - /
+    path: /
 
     ## For Kubernetes >= 1.18 you should specify the pathType (determines how Ingress paths should be matched)
     ## See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#better-path-matching-with-path-types
